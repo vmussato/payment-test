@@ -16,14 +16,24 @@ constructor(private http: HttpClient) {}
     'Authorization': 'bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcGkuZmlsb25hcmVkLmNvbS5iclwvYXBpXC9yZWdpc3RlciIsImlhdCI6MTU2OTc4ODcxNSwiZXhwIjoxNTcxMDg0NzE1LCJuYmYiOjE1Njk3ODg3MTUsImp0aSI6IjBCT2lLbDBRYjNXQlRuUXMiLCJzdWIiOjEsInBydiI6IjZlNmJiNTMwNzg2MTFjN2I4M2UxZGJkMmY3YWExODlkZjI4ZTgwN2YifQ.dhgypuVZLH3YP3VaworHMeIqkHSkDknEy5CsueFjAro'
   });
 
-  public startSession (){
+  public startSession (token){
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'bearer ' + token
+    });
 
     let options = { headers: this.headers };
 
     return this.http.get( this.url+'payment/session', options);
   }
 
-  public store (data){
+  public store (data, token){
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'bearer ' + token
+    });
 
     let options = { headers: this.headers };
     

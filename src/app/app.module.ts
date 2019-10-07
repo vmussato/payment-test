@@ -10,16 +10,21 @@ import { PagamentoService } from './pagamento.service';
 import { VariableGlobal } from './variable.global.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { PaymentComponent } from './components/payment/payment.component';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    
     
   ],
   providers: [PagamentoService, VariableGlobal],
